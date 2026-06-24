@@ -42,13 +42,13 @@
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
             --transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
         }
-
+ 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+ 
         body {
             font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #4c1d95 70%, #5b21b6 100%);
@@ -62,7 +62,7 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
+ 
         body::before {
             content: '';
             position: fixed;
@@ -79,7 +79,7 @@
             0% { opacity: 0.7; }
             100% { opacity: 1; }
         }
-
+ 
         .container {
             position: relative;
             z-index: 1;
@@ -99,7 +99,7 @@
         .container::-webkit-scrollbar-track { background: transparent; border-radius: 3px; }
         .container::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 3px; }
         .container::-webkit-scrollbar-thumb:hover { background: var(--gray-400); }
-
+ 
         .header { text-align: center; margin-bottom: 28px; }
         .logo-badge {
             display: inline-flex; align-items: center; gap: 8px;
@@ -110,7 +110,7 @@
         }
         .header h1 { color: var(--gray-900); font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin: 0; }
         .header .subtitle { color: var(--gray-500); font-size: 14px; margin-top: 4px; }
-
+ 
         /* Live data status banner */
         .data-status-banner {
             display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -121,7 +121,7 @@
         .data-status-banner.live    { background: #d1fae5; color: #065f46; }
         .data-status-banner.cached  { background: #dbeafe; color: #1e40af; }
         .data-status-banner.error   { background: #fee2e2; color: #991b1b; }
-
+ 
         .tabs { display: flex; gap: 4px; margin-bottom: 28px; background: var(--gray-100); border-radius: 50px; padding: 4px; position: sticky; top: 0; z-index: 10; }
         .tab {
             flex: 1; padding: 11px 20px; text-align: center; cursor: pointer; font-weight: 600;
@@ -130,15 +130,15 @@
         }
         .tab.active { background: white; color: var(--primary); box-shadow: var(--shadow-sm); }
         .tab:hover:not(.active) { color: var(--gray-800); background: rgba(255,255,255,0.5); }
-
+ 
         .tab-content { display: none; animation: fadeSlideIn 0.3s ease; }
         .tab-content.active { display: block; }
         @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
+ 
         .card { background: white; border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; box-shadow: var(--shadow-sm); transition: box-shadow var(--transition); }
         .card:hover { box-shadow: var(--shadow-md); }
         .card-header { font-weight: 700; font-size: 16px; color: var(--gray-900); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; letter-spacing: -0.01em; }
-
+ 
         .form-group { margin-bottom: 16px; }
         .form-group label { display: block; margin-bottom: 6px; color: var(--gray-700); font-weight: 600; font-size: 13px; letter-spacing: 0.02em; text-transform: uppercase; }
         .form-group input, .form-group select {
@@ -150,7 +150,7 @@
         .form-group input::placeholder { color: var(--gray-400); }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
-
+ 
         .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 11px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all var(--transition); border: none; font-family: inherit; letter-spacing: -0.01em; white-space: nowrap; text-decoration: none; user-select: none; }
         .btn:active { transform: scale(0.97); }
         .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%); color: white; box-shadow: 0 2px 8px rgba(79,70,229,0.3); width: 100%; padding: 13px; font-size: 15px; }
@@ -169,7 +169,7 @@
         .btn-xs { padding: 4px 10px; font-size: 11px; border-radius: 20px; gap: 3px; }
         .btn-group { display: flex; gap: 8px; flex-wrap: wrap; }
         .btn-group .btn { flex: 1; min-width: 100px; }
-
+ 
         .result-box { margin-top: 20px; padding: 20px 24px; border-radius: var(--radius); display: none; animation: fadeSlideIn 0.35s ease; border: 2px solid transparent; }
         .result-box.show { display: block; }
         .result-box.success { background: var(--success-light); border-color: #6ee7b7; }
@@ -177,31 +177,31 @@
         .result-box.info { background: var(--info-light); border-color: #93c5fd; }
         .result-box h3 { margin-bottom: 8px; color: var(--gray-900); font-size: 17px; }
         .result-box p { margin: 6px 0; color: var(--gray-600); font-size: 14px; }
-
+ 
         .status-badge { display: inline-flex; align-items: center; gap: 4px; padding: 5px 14px; border-radius: 50px; font-weight: 700; font-size: 13px; }
         .status-approved { background: #d1fae5; color: #065f46; }
         .status-pending { background: #fef3c7; color: #92400e; }
         .status-rejected { background: #fee2e2; color: #991b1b; }
         .status-processing { background: #dbeafe; color: #1e40af; }
-
+ 
         .result-details { margin: 12px 0; }
         .detail-row { display: flex; padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06); gap: 12px; align-items: center; }
         .detail-row:last-child { border-bottom: none; }
         .detail-label { font-weight: 600; min-width: 90px; color: var(--gray-500); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
         .detail-value { flex: 1; color: var(--gray-900); font-weight: 500; }
-
+ 
         .admin-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-bottom: 16px; }
         .stat-card { background: var(--gray-50); border-radius: var(--radius-sm); padding: 14px; text-align: center; border: 1px solid var(--gray-200); }
         .stat-card .stat-value { font-size: 28px; font-weight: 800; color: var(--primary); }
         .stat-card .stat-label { font-size: 11px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; }
-
+ 
         .records-table-wrap { overflow-x: auto; max-height: 400px; overflow-y: auto; border-radius: var(--radius-sm); border: 1px solid var(--gray-200); }
         .records-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 600px; }
         .records-table th { background: var(--gray-50); padding: 10px 12px; text-align: left; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--gray-500); border-bottom: 2px solid var(--gray-200); position: sticky; top: 0; z-index: 1; }
         .records-table td { padding: 10px 12px; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); }
         .records-table tbody tr:hover { background: var(--gray-50); }
         .records-table .actions { display: flex; gap: 4px; }
-
+ 
         .toast-container { position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 8px; }
         .toast { padding: 12px 20px; border-radius: 50px; color: white; font-weight: 600; font-size: 13px; box-shadow: var(--shadow-lg); animation: slideInRight 0.3s ease, fadeOutRight 0.3s ease 2.7s forwards; max-width: 380px; }
         .toast.success { background: var(--success); }
@@ -209,54 +209,54 @@
         .toast.info { background: var(--info); }
         @keyframes slideInRight { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
         @keyframes fadeOutRight { from { transform: translateX(0); opacity: 1; } to { transform: translateX(120%); opacity: 0; } }
-
+ 
         .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; display: flex; align-items: center; justify-content: center; animation: fadeIn 0.2s ease; }
         .modal { background: white; border-radius: var(--radius); padding: 28px; max-width: 500px; width: 90%; box-shadow: var(--shadow-xl); animation: scaleIn 0.25s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes scaleIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-
+ 
         .search-box { position: relative; margin-bottom: 12px; }
         .search-box input { width: 100%; padding: 10px 14px 10px 38px; border: 2px solid var(--gray-200); border-radius: 50px; font-size: 14px; background: var(--gray-50); }
         .search-box input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(79,70,229,0.08); background: white; }
         .search-box .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--gray-400); pointer-events: none; }
-
+ 
         .storage-indicator { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 50px; font-size: 11px; font-weight: 700; }
         .storage-local { background: #dbeafe; color: #1e40af; }
         .storage-persistent { background: #d1fae5; color: #065f46; }
-
+ 
         .file-drop-zone { border: 2px dashed var(--gray-300); border-radius: var(--radius); padding: 28px; text-align: center; cursor: pointer; transition: all var(--transition); background: var(--gray-50); }
         .file-drop-zone:hover, .file-drop-zone.dragover { border-color: var(--primary); background: var(--primary-light); }
         .file-drop-zone .drop-icon { font-size: 36px; margin-bottom: 8px; }
         .file-drop-zone p { color: var(--gray-500); font-size: 13px; }
-
+ 
         .empty-state { text-align: center; padding: 40px 20px; color: var(--gray-400); }
         .empty-state .empty-icon { font-size: 48px; margin-bottom: 12px; }
         hr { border: none; border-top: 1px solid var(--gray-200); margin: 16px 0; }
         code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
-
+ 
         .sheet-url-display { font-size: 11px; color: var(--gray-400); margin-top: 6px; word-break: break-all; }
     </style>
 </head>
 <body>
     <div class="toast-container" id="toastContainer"></div>
-
+ 
     <div class="container" id="app">
         <div class="header">
             <div class="logo-badge">🏠 MM2H Checker</div>
             <h1>Application Status Checker</h1>
             <p class="subtitle">Malaysia My Second Home — Track your application</p>
         </div>
-
+ 
         <!-- Live data status banner -->
         <div class="data-status-banner loading" id="dataStatusBanner">
             ⏳ Loading application data…
         </div>
-
+ 
         <div class="tabs">
             <button class="tab active" data-tab="check" onclick="switchTab('check')">🔍 Check Status</button>
             <button class="tab" data-tab="admin" onclick="switchTab('admin')">⚙️ Admin Panel</button>
         </div>
-
+ 
         <!-- Check Tab -->
         <div class="tab-content active" id="tab-check">
             <div class="card">
@@ -282,7 +282,7 @@
                 </p>
             </div>
         </div>
-
+ 
         <!-- Admin Tab -->
         <div class="tab-content" id="tab-admin">
             <div class="card" id="adminLoginCard">
@@ -294,7 +294,7 @@
                 </form>
                 <div id="adminMessage" style="margin-top:12px;font-size:13px;"></div>
             </div>
-
+ 
             <div id="adminControls" style="display:none;">
                 <div class="card">
                     <div class="card-header">📊 Dashboard <span class="storage-indicator storage-persistent">🌐 Live Google Sheets</span></div>
@@ -313,7 +313,7 @@
                     </div>
                     <button class="btn btn-secondary btn-sm" onclick="loadLiveData(true)" style="width:auto;">🔄 Refresh Live Data</button>
                 </div>
-
+ 
                 <!-- Google Sheets Live Config -->
                 <div class="card" style="border: 2px solid #6ee7b7; background: #f0fdf4;">
                     <div class="card-header">🌐 Live Data Source — Google Sheets</div>
@@ -338,7 +338,7 @@
                     </div>
                     <div id="googleSheetFeedback" style="margin-top:10px;font-size:13px;"></div>
                 </div>
-
+ 
                 <!-- File Upload Card -->
                 <div class="card">
                     <div class="card-header">📤 Bulk Upload Records (File)</div>
@@ -355,7 +355,7 @@
                     </div>
                     <div id="uploadFeedback" style="margin-top:8px;font-size:13px;"></div>
                 </div>
-
+ 
                 <!-- Records Table -->
                 <div class="card">
                     <div class="card-header" style="justify-content:space-between;flex-wrap:wrap;gap:8px;">
@@ -378,7 +378,7 @@
                         </table>
                     </div>
                 </div>
-
+ 
                 <!-- Credentials Reset -->
                 <div class="card">
                     <div class="card-header">🔐 Reset Admin Credentials</div>
@@ -393,7 +393,7 @@
             </div>
         </div>
     </div>
-
+ 
     <!-- Edit Modal -->
     <div class="modal-overlay" id="editModal" style="display:none;" onclick="closeModalOutside(event)">
         <div class="modal" onclick="event.stopPropagation()">
@@ -409,14 +409,14 @@
             </div>
         </div>
     </div>
-
+ 
     <script>
         // ==================== GLOBAL STATE ====================
         let database = [];
         let adminCredentials = { username: 'AHS', password: '123' };
         let isAdminLoggedIn = false;
         let liveSheetUrl = '';
-
+ 
         // ==================== STORAGE ====================
         function loadFromStorage() {
             const saved = localStorage.getItem('mm2h_database_v2');
@@ -431,14 +431,14 @@
             localStorage.setItem('mm2h_admin_creds_v2', JSON.stringify(adminCredentials));
             if (liveSheetUrl) localStorage.setItem('mm2h_live_sheet_url', liveSheetUrl);
         }
-
+ 
         // ==================== LIVE DATA (Google Sheets) ====================
         function setDataBanner(state, message) {
             const banner = document.getElementById('dataStatusBanner');
             banner.className = `data-status-banner ${state}`;
             banner.textContent = message;
         }
-
+ 
         // Fetches a Google Sheets CSV URL through CORS proxies (tries each in order)
         async function fetchSheetCsv(url) {
             const proxies = [
@@ -458,11 +458,11 @@
             }
             throw new Error('Could not load sheet data. Make sure your sheet is published as CSV and is publicly accessible. (Details: ' + lastError + ')');
         }
-
+ 
         async function loadLiveData(manual = false) {
             // Load credentials and saved URL from storage first
             loadFromStorage();
-
+ 
             if (!liveSheetUrl) {
                 // No live URL configured — use localStorage data
                 setDataBanner('cached', '💾 Showing locally cached data — no live sheet configured yet');
@@ -470,29 +470,29 @@
                 renderRecordsTable();
                 return;
             }
-
+ 
             setDataBanner('loading', '⏳ Fetching live data from Google Sheets…');
             try {
                 const csvText = await fetchSheetCsv(liveSheetUrl);
                 const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
-
+ 
                 if (parsed.data.length === 0) throw new Error('Sheet returned no data');
-
+ 
                 const headers = parsed.meta.fields;
                 const nameKey = findColumnKey(headers, 'name', 'full name', 'applicant');
                 const passportKey = findColumnKey(headers, 'passport', 'passport no', 'passport number');
                 const statusKey = findColumnKey(headers, 'status');
                 const dateKey = findColumnKey(headers, 'date', 'updated', 'last');
-
+ 
                 if (!nameKey || !passportKey) throw new Error('Could not find Name/Passport columns. Headers: ' + headers.join(', '));
-
+ 
                 const records = parsed.data.map(row => ({
                     name: (row[nameKey] || '').trim(),
                     passport: (row[passportKey] || '').toString().toUpperCase().trim(),
                     status: statusKey ? (row[statusKey] || 'Pending').trim() : 'Pending',
                     date: dateKey ? (row[dateKey] || '').trim() : ''
                 })).filter(r => r.name && r.passport);
-
+ 
                 database = records;
                 saveToStorage();
                 setDataBanner('live', `🌐 Live data loaded — ${records.length} records from Google Sheets`);
@@ -506,7 +506,7 @@
             updateAdminStats();
             renderRecordsTable();
         }
-
+ 
         // ==================== SHEET URL MANAGEMENT ====================
         function saveLiveSheetUrl() {
             const url = document.getElementById('liveSheetUrl').value.trim();
@@ -522,7 +522,7 @@
             feedback.style.color = '#059669';
             showToast('Live sheet URL saved', 'success');
         }
-
+ 
         async function testAndImportSheet() {
             const url = document.getElementById('liveSheetUrl').value.trim();
             const feedback = document.getElementById('googleSheetFeedback');
@@ -554,14 +554,14 @@
                 feedback.style.color = '#dc2626';
             }
         }
-
+ 
         function updateSheetUrlDisplay() {
             const el = document.getElementById('currentSheetUrlDisplay');
             if (el && liveSheetUrl) {
                 el.textContent = '✅ Active: ' + liveSheetUrl.substring(0, 60) + (liveSheetUrl.length > 60 ? '…' : '');
             }
         }
-
+ 
         // ==================== TOAST ====================
         function showToast(message, type = 'info') {
             const container = document.getElementById('toastContainer');
@@ -571,7 +571,7 @@
             container.appendChild(toast);
             setTimeout(() => { if (toast.parentNode) toast.remove(); }, 3200);
         }
-
+ 
         // ==================== TABS ====================
         function switchTab(tabName) {
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -590,7 +590,7 @@
                 }
             }
         }
-
+ 
         // ==================== NAME MATCHING ====================
         function normalizeText(text) {
             return text.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim();
@@ -605,7 +605,7 @@
             if (inputWords.length === 0) return false;
             return inputWords.every(iw => dbWords.some(dw => dw.includes(iw) || iw.includes(dw)));
         }
-
+ 
         // ==================== CHECK STATUS ====================
         function checkStatus(event) {
             event.preventDefault();
@@ -636,7 +636,7 @@
             resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
         function escapeHtml(str) { const div = document.createElement('div'); div.textContent = str; return div.innerHTML; }
-
+ 
         // ==================== ADMIN LOGIN ====================
         function adminLogin(event) {
             event.preventDefault();
@@ -679,7 +679,7 @@
             document.getElementById('newUsername').value = ''; document.getElementById('newPassword').value = '';
             showToast('Credentials updated', 'success');
         }
-
+ 
         // ==================== STATS & TABLE ====================
         function updateAdminStats() {
             document.getElementById('statTotal').textContent = database.length;
@@ -721,7 +721,7 @@
             }
             updateAdminStats();
         }
-
+ 
         function editRecord(index) {
             const r = database[index]; if (!r) return;
             document.getElementById('editIndex').value = index;
@@ -757,7 +757,7 @@
         }
         function closeModal() { document.getElementById('editModal').style.display = 'none'; }
         function closeModalOutside(e) { if (e.target === document.getElementById('editModal')) closeModal(); }
-
+ 
         // ==================== FILE UPLOAD ====================
         function handleFileUpload(files) {
             if (!files || files.length===0) return;
@@ -817,7 +817,7 @@
                 reader.readAsArrayBuffer(file);
             }
         }
-
+ 
         function parseTextToRecords(text) {
             const lines = text.split('\n').filter(l=>l.trim());
             const records = [];
@@ -833,7 +833,7 @@
             }
             return records;
         }
-
+ 
         function processUploadedRecords(records, merge, feedbackEl, sourceName) {
             if (!merge) database = [];
             let added=0, updated=0;
@@ -847,19 +847,19 @@
             feedbackEl.style.color = '#059669';
             showToast(`${added} added, ${updated} updated`, 'success');
         }
-
+ 
         function importFromHardDrive() {
             const input = document.createElement('input');
             input.type='file'; input.accept='.json,.csv,.xlsx,.xls,.pdf';
             input.onchange = () => handleFileUpload(input.files);
             input.click();
         }
-
+ 
         // ==================== COLUMN KEY HELPER ====================
         function findColumnKey(keys, ...aliases) {
             return keys.find(k => aliases.some(a => k.toLowerCase().includes(a))) || null;
         }
-
+ 
         // ==================== EXPORT ====================
         function exportDatabase(format) {
             if (database.length===0) { showToast('Nothing to export.','error'); return; }
@@ -882,7 +882,7 @@
             const a = document.createElement('a'); a.href=url; a.download=filename; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
             showToast(`Exported ${database.length} records`, 'success');
         }
-
+ 
         function addSampleData() {
             const samples = [
                 {name:'Ching Chien',passport:'F12345678',status:'Approved',date:'2024-06-15'},
@@ -907,7 +907,7 @@
             document.getElementById('result').className='result-box'; document.getElementById('result').innerHTML='';
             showToast('All records deleted','error');
         }
-
+ 
         // ==================== DRAG & DROP ====================
         function setupDragDrop() {
             const dropZone = document.getElementById('dropZone');
@@ -920,7 +920,7 @@
                 if (files.length) { document.getElementById('fileInput').files = files; handleFileUpload(files); }
             });
         }
-
+ 
         // ==================== INIT ====================
         window.onload = function() {
             setupDragDrop();
