@@ -102,41 +102,34 @@
 
         .header { text-align: center; margin-bottom: 28px; }
         .logo-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            display: inline-flex; align-items: center; gap: 8px;
             background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
-            color: white;
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 15px;
-            letter-spacing: -0.01em;
-            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
-            margin-bottom: 16px;
+            color: white; padding: 10px 22px; border-radius: 50px;
+            font-weight: 700; font-size: 15px; letter-spacing: -0.01em;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35); margin-bottom: 16px;
         }
         .header h1 { color: var(--gray-900); font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin: 0; }
         .header .subtitle { color: var(--gray-500); font-size: 14px; margin-top: 4px; }
 
+        /* Live data status banner */
+        .data-status-banner {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            padding: 8px 16px; border-radius: 50px; font-size: 12px; font-weight: 600;
+            margin-bottom: 20px; transition: all var(--transition);
+        }
+        .data-status-banner.loading { background: #fef3c7; color: #92400e; }
+        .data-status-banner.live    { background: #d1fae5; color: #065f46; }
+        .data-status-banner.cached  { background: #dbeafe; color: #1e40af; }
+        .data-status-banner.error   { background: #fee2e2; color: #991b1b; }
+
         .tabs { display: flex; gap: 4px; margin-bottom: 28px; background: var(--gray-100); border-radius: 50px; padding: 4px; position: sticky; top: 0; z-index: 10; }
         .tab {
-            flex: 1;
-            padding: 11px 20px;
-            text-align: center;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--gray-600);
-            transition: all var(--transition);
-            border-radius: 50px;
-            border: none;
-            background: transparent;
-            white-space: nowrap;
-            letter-spacing: -0.01em;
-            user-select: none;
+            flex: 1; padding: 11px 20px; text-align: center; cursor: pointer; font-weight: 600;
+            font-size: 14px; color: var(--gray-600); transition: all var(--transition); border-radius: 50px;
+            border: none; background: transparent; white-space: nowrap; letter-spacing: -0.01em; user-select: none;
         }
         .tab.active { background: white; color: var(--primary); box-shadow: var(--shadow-sm); }
-        .tab:hover:not(.active) { color: var(--gray-800); background: rgba(255, 255, 255, 0.5); }
+        .tab:hover:not(.active) { color: var(--gray-800); background: rgba(255,255,255,0.5); }
 
         .tab-content { display: none; animation: fadeSlideIn 0.3s ease; }
         .tab-content.active { display: block; }
@@ -148,35 +141,26 @@
 
         .form-group { margin-bottom: 16px; }
         .form-group label { display: block; margin-bottom: 6px; color: var(--gray-700); font-weight: 600; font-size: 13px; letter-spacing: 0.02em; text-transform: uppercase; }
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 11px 14px;
-            border: 2px solid var(--gray-200);
-            border-radius: var(--radius-sm);
-            font-size: 15px;
-            transition: all var(--transition);
-            background: var(--gray-50);
-            color: var(--gray-900);
-            font-family: inherit;
-            letter-spacing: -0.01em;
+        .form-group input, .form-group select {
+            width: 100%; padding: 11px 14px; border: 2px solid var(--gray-200); border-radius: var(--radius-sm);
+            font-size: 15px; transition: all var(--transition); background: var(--gray-50); color: var(--gray-900);
+            font-family: inherit; letter-spacing: -0.01em;
         }
-        .form-group input:focus,
-        .form-group select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1); background: white; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(79,70,229,0.1); background: white; }
         .form-group input::placeholder { color: var(--gray-400); }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
 
         .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 11px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all var(--transition); border: none; font-family: inherit; letter-spacing: -0.01em; white-space: nowrap; text-decoration: none; user-select: none; }
         .btn:active { transform: scale(0.97); }
-        .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%); color: white; box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3); width: 100%; padding: 13px; font-size: 15px; }
-        .btn-primary:hover { box-shadow: 0 4px 16px rgba(79, 70, 229, 0.45); transform: translateY(-1px); }
+        .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%); color: white; box-shadow: 0 2px 8px rgba(79,70,229,0.3); width: 100%; padding: 13px; font-size: 15px; }
+        .btn-primary:hover { box-shadow: 0 4px 16px rgba(79,70,229,0.45); transform: translateY(-1px); }
         .btn-secondary { background: var(--gray-100); color: var(--gray-700); border: 1px solid var(--gray-200); }
         .btn-secondary:hover { background: var(--gray-200); }
-        .btn-danger { background: var(--danger); color: white; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25); }
-        .btn-danger:hover { background: #b91c1c; box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4); }
-        .btn-success { background: var(--success); color: white; box-shadow: 0 2px 8px rgba(5, 150, 105, 0.25); }
-        .btn-success:hover { background: #047857; box-shadow: 0 4px 14px rgba(5, 150, 105, 0.4); }
+        .btn-danger { background: var(--danger); color: white; box-shadow: 0 2px 8px rgba(220,38,38,0.25); }
+        .btn-danger:hover { background: #b91c1c; box-shadow: 0 4px 14px rgba(220,38,38,0.4); }
+        .btn-success { background: var(--success); color: white; box-shadow: 0 2px 8px rgba(5,150,105,0.25); }
+        .btn-success:hover { background: #047857; box-shadow: 0 4px 14px rgba(5,150,105,0.4); }
         .btn-info { background: var(--info); color: white; }
         .btn-info:hover { background: #1d4ed8; }
         .btn-warning { background: var(--warning); color: white; }
@@ -201,7 +185,7 @@
         .status-processing { background: #dbeafe; color: #1e40af; }
 
         .result-details { margin: 12px 0; }
-        .detail-row { display: flex; padding: 10px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.06); gap: 12px; align-items: center; }
+        .detail-row { display: flex; padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06); gap: 12px; align-items: center; }
         .detail-row:last-child { border-bottom: none; }
         .detail-label { font-weight: 600; min-width: 90px; color: var(--gray-500); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
         .detail-value { flex: 1; color: var(--gray-900); font-weight: 500; }
@@ -226,14 +210,14 @@
         @keyframes slideInRight { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
         @keyframes fadeOutRight { from { transform: translateX(0); opacity: 1; } to { transform: translateX(120%); opacity: 0; } }
 
-        .modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); z-index: 100; display: flex; align-items: center; justify-content: center; animation: fadeIn 0.2s ease; }
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; display: flex; align-items: center; justify-content: center; animation: fadeIn 0.2s ease; }
         .modal { background: white; border-radius: var(--radius); padding: 28px; max-width: 500px; width: 90%; box-shadow: var(--shadow-xl); animation: scaleIn 0.25s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes scaleIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
         .search-box { position: relative; margin-bottom: 12px; }
         .search-box input { width: 100%; padding: 10px 14px 10px 38px; border: 2px solid var(--gray-200); border-radius: 50px; font-size: 14px; background: var(--gray-50); }
-        .search-box input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.08); background: white; }
+        .search-box input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(79,70,229,0.08); background: white; }
         .search-box .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--gray-400); pointer-events: none; }
 
         .storage-indicator { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 50px; font-size: 11px; font-weight: 700; }
@@ -241,8 +225,7 @@
         .storage-persistent { background: #d1fae5; color: #065f46; }
 
         .file-drop-zone { border: 2px dashed var(--gray-300); border-radius: var(--radius); padding: 28px; text-align: center; cursor: pointer; transition: all var(--transition); background: var(--gray-50); }
-        .file-drop-zone:hover,
-        .file-drop-zone.dragover { border-color: var(--primary); background: var(--primary-light); }
+        .file-drop-zone:hover, .file-drop-zone.dragover { border-color: var(--primary); background: var(--primary-light); }
         .file-drop-zone .drop-icon { font-size: 36px; margin-bottom: 8px; }
         .file-drop-zone p { color: var(--gray-500); font-size: 13px; }
 
@@ -250,6 +233,8 @@
         .empty-state .empty-icon { font-size: 48px; margin-bottom: 12px; }
         hr { border: none; border-top: 1px solid var(--gray-200); margin: 16px 0; }
         code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+
+        .sheet-url-display { font-size: 11px; color: var(--gray-400); margin-top: 6px; word-break: break-all; }
     </style>
 </head>
 <body>
@@ -260,6 +245,11 @@
             <div class="logo-badge">🏠 MM2H Checker</div>
             <h1>Application Status Checker</h1>
             <p class="subtitle">Malaysia My Second Home — Track your application</p>
+        </div>
+
+        <!-- Live data status banner -->
+        <div class="data-status-banner loading" id="dataStatusBanner">
+            ⏳ Loading application data…
         </div>
 
         <div class="tabs">
@@ -307,7 +297,7 @@
 
             <div id="adminControls" style="display:none;">
                 <div class="card">
-                    <div class="card-header">📊 Dashboard <span class="storage-indicator storage-local">💾 Browser Storage</span></div>
+                    <div class="card-header">📊 Dashboard <span class="storage-indicator storage-persistent">🌐 Live Google Sheets</span></div>
                     <div class="admin-stats" id="adminStats">
                         <div class="stat-card"><div class="stat-value" id="statTotal">0</div><div class="stat-label">Total</div></div>
                         <div class="stat-card"><div class="stat-value" id="statApproved">0</div><div class="stat-label">✅ Approved</div></div>
@@ -315,12 +305,38 @@
                         <div class="stat-card"><div class="stat-value" id="statProcessing">0</div><div class="stat-label">🔄 Processing</div></div>
                         <div class="stat-card"><div class="stat-value" id="statRejected">0</div><div class="stat-label">❌ Rejected</div></div>
                     </div>
-                    <div class="btn-group">
+                    <div class="btn-group" style="margin-bottom:12px;">
                         <button class="btn btn-success btn-sm" onclick="exportDatabase('json')">💾 Export JSON</button>
                         <button class="btn btn-info btn-sm" onclick="exportDatabase('csv')">📄 Export CSV</button>
                         <button class="btn btn-info btn-sm" onclick="exportDatabase('xlsx')">📊 Export Excel</button>
                         <button class="btn btn-warning btn-sm" onclick="importFromHardDrive()">📂 Import File</button>
                     </div>
+                    <button class="btn btn-secondary btn-sm" onclick="loadLiveData(true)" style="width:auto;">🔄 Refresh Live Data</button>
+                </div>
+
+                <!-- Google Sheets Live Config -->
+                <div class="card" style="border: 2px solid #6ee7b7; background: #f0fdf4;">
+                    <div class="card-header">🌐 Live Data Source — Google Sheets</div>
+                    <p style="font-size:13px;color:var(--gray-600);margin-bottom:12px;">
+                        This is where clients worldwide get their data. Publish your Google Sheet as CSV
+                        (<code>File → Share → Publish to web → CSV</code>) and paste the URL here.
+                        The app will fetch it live on every page load.
+                    </p>
+                    <div class="form-group">
+                        <label>Published CSV URL</label>
+                        <input type="url" id="liveSheetUrl" placeholder="https://docs.google.com/spreadsheets/d/e/.../pub?output=csv">
+                        <div class="sheet-url-display" id="currentSheetUrlDisplay"></div>
+                    </div>
+                    <div style="margin-bottom:12px;">
+                        <label style="font-size:12px;color:var(--gray-500);">
+                            <input type="checkbox" id="mergeGoogleSheet" checked> Merge with existing records
+                        </label>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-success btn-sm" onclick="saveLiveSheetUrl()">💾 Save & Activate</button>
+                        <button class="btn btn-info btn-sm" onclick="testAndImportSheet()">📥 Test & Import Now</button>
+                    </div>
+                    <div id="googleSheetFeedback" style="margin-top:10px;font-size:13px;"></div>
                 </div>
 
                 <!-- File Upload Card -->
@@ -338,25 +354,6 @@
                         </label>
                     </div>
                     <div id="uploadFeedback" style="margin-top:8px;font-size:13px;"></div>
-                </div>
-
-                <!-- Google Sheets CSV Link Import -->
-                <div class="card">
-                    <div class="card-header">🔗 Import from Google Sheets CSV Link</div>
-                    <p style="font-size:13px;color:var(--gray-500);margin-bottom:12px;">
-                        Publish your Google Sheet as CSV (<code>File → Share → Publish to web</code>, select <strong>CSV</strong> format) and paste the link below.
-                    </p>
-                    <div class="form-group">
-                        <label>Published CSV URL</label>
-                        <input type="url" id="googleSheetUrl" placeholder="https://docs.google.com/spreadsheets/d/e/.../pub?output=csv">
-                    </div>
-                    <div style="margin-bottom:8px;">
-                        <label style="font-size:12px;color:var(--gray-500);">
-                            <input type="checkbox" id="mergeGoogleSheet" checked> Merge with existing records
-                        </label>
-                    </div>
-                    <button class="btn btn-info btn-sm" onclick="importFromGoogleSheet()">📥 Fetch & Import</button>
-                    <div id="googleSheetFeedback" style="margin-top:8px;font-size:13px;"></div>
                 </div>
 
                 <!-- Records Table -->
@@ -418,22 +415,151 @@
         let database = [];
         let adminCredentials = { username: 'AHS', password: '123' };
         let isAdminLoggedIn = false;
+        let liveSheetUrl = '';
 
         // ==================== STORAGE ====================
         function loadFromStorage() {
             const saved = localStorage.getItem('mm2h_database_v2');
-            if (saved) {
-                try { database = JSON.parse(saved); if (!Array.isArray(database)) database = []; } catch (e) { database = []; }
-            }
+            if (saved) { try { database = JSON.parse(saved); if (!Array.isArray(database)) database = []; } catch (e) { database = []; } }
             const savedCreds = localStorage.getItem('mm2h_admin_creds_v2');
-            if (savedCreds) {
-                try { const creds = JSON.parse(savedCreds); if (creds.username && creds.password) adminCredentials = creds; } catch (e) {}
-            }
+            if (savedCreds) { try { const creds = JSON.parse(savedCreds); if (creds.username && creds.password) adminCredentials = creds; } catch (e) {} }
+            const savedUrl = localStorage.getItem('mm2h_live_sheet_url');
+            if (savedUrl) liveSheetUrl = savedUrl;
         }
-
         function saveToStorage() {
             localStorage.setItem('mm2h_database_v2', JSON.stringify(database));
             localStorage.setItem('mm2h_admin_creds_v2', JSON.stringify(adminCredentials));
+            if (liveSheetUrl) localStorage.setItem('mm2h_live_sheet_url', liveSheetUrl);
+        }
+
+        // ==================== LIVE DATA (Google Sheets) ====================
+        function setDataBanner(state, message) {
+            const banner = document.getElementById('dataStatusBanner');
+            banner.className = `data-status-banner ${state}`;
+            banner.textContent = message;
+        }
+
+        // Fetches a Google Sheets CSV URL through CORS proxies (tries each in order)
+        async function fetchSheetCsv(url) {
+            const proxies = [
+                u => `https://corsproxy.io/?${encodeURIComponent(u)}`,
+                u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
+                u => `https://thingproxy.freeboard.io/fetch/${u}`,
+            ];
+            let lastError = '';
+            for (const makeUrl of proxies) {
+                try {
+                    const res = await fetch(makeUrl(url));
+                    if (!res.ok) throw new Error('HTTP ' + res.status);
+                    const text = await res.text();
+                    if (text && text.trim().length > 0) return text;
+                    throw new Error('Empty response');
+                } catch (e) { lastError = e.message; }
+            }
+            throw new Error('Could not load sheet data. Make sure your sheet is published as CSV and is publicly accessible. (Details: ' + lastError + ')');
+        }
+
+        async function loadLiveData(manual = false) {
+            // Load credentials and saved URL from storage first
+            loadFromStorage();
+
+            if (!liveSheetUrl) {
+                // No live URL configured — use localStorage data
+                setDataBanner('cached', '💾 Showing locally cached data — no live sheet configured yet');
+                updateAdminStats();
+                renderRecordsTable();
+                return;
+            }
+
+            setDataBanner('loading', '⏳ Fetching live data from Google Sheets…');
+            try {
+                const csvText = await fetchSheetCsv(liveSheetUrl);
+                const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
+
+                if (parsed.data.length === 0) throw new Error('Sheet returned no data');
+
+                const headers = parsed.meta.fields;
+                const nameKey = findColumnKey(headers, 'name', 'full name', 'applicant');
+                const passportKey = findColumnKey(headers, 'passport', 'passport no', 'passport number');
+                const statusKey = findColumnKey(headers, 'status');
+                const dateKey = findColumnKey(headers, 'date', 'updated', 'last');
+
+                if (!nameKey || !passportKey) throw new Error('Could not find Name/Passport columns. Headers: ' + headers.join(', '));
+
+                const records = parsed.data.map(row => ({
+                    name: (row[nameKey] || '').trim(),
+                    passport: (row[passportKey] || '').toString().toUpperCase().trim(),
+                    status: statusKey ? (row[statusKey] || 'Pending').trim() : 'Pending',
+                    date: dateKey ? (row[dateKey] || '').trim() : ''
+                })).filter(r => r.name && r.passport);
+
+                database = records;
+                saveToStorage();
+                setDataBanner('live', `🌐 Live data loaded — ${records.length} records from Google Sheets`);
+                if (manual) showToast(`Refreshed: ${records.length} records loaded`, 'success');
+            } catch (err) {
+                // Fall back gracefully to cached data
+                setDataBanner('error', `⚠️ Could not reach Google Sheets — showing cached data (${database.length} records)`);
+                if (manual) showToast('Error: ' + err.message, 'error');
+                console.warn('Live sheet error:', err.message);
+            }
+            updateAdminStats();
+            renderRecordsTable();
+        }
+
+        // ==================== SHEET URL MANAGEMENT ====================
+        function saveLiveSheetUrl() {
+            const url = document.getElementById('liveSheetUrl').value.trim();
+            const feedback = document.getElementById('googleSheetFeedback');
+            if (!url) { feedback.textContent = '❌ Please enter a URL.'; feedback.style.color = '#dc2626'; return; }
+            if (!url.includes('docs.google.com') && !url.startsWith('http')) {
+                feedback.textContent = '❌ Please enter a valid Google Sheets published CSV URL.'; feedback.style.color = '#dc2626'; return;
+            }
+            liveSheetUrl = url;
+            localStorage.setItem('mm2h_live_sheet_url', url);
+            updateSheetUrlDisplay();
+            feedback.textContent = '✅ Live sheet URL saved! Data will load from this sheet on every page visit.';
+            feedback.style.color = '#059669';
+            showToast('Live sheet URL saved', 'success');
+        }
+
+        async function testAndImportSheet() {
+            const url = document.getElementById('liveSheetUrl').value.trim();
+            const feedback = document.getElementById('googleSheetFeedback');
+            if (!url) { feedback.textContent = '❌ Please enter a URL first.'; feedback.style.color = '#dc2626'; return; }
+            feedback.textContent = '⏳ Testing connection…'; feedback.style.color = '#6b7280';
+            try {
+                const csvText = await fetchSheetCsv(url);
+                const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
+                const headers = parsed.meta.fields;
+                const nameKey = findColumnKey(headers, 'name', 'full name', 'applicant');
+                const passportKey = findColumnKey(headers, 'passport', 'passport no', 'passport number');
+                const statusKey = findColumnKey(headers, 'status');
+                const dateKey = findColumnKey(headers, 'date', 'updated', 'last');
+                if (!nameKey || !passportKey) {
+                    feedback.textContent = '❌ Could not find Name and Passport columns. Headers found: ' + headers.join(', ');
+                    feedback.style.color = '#dc2626'; return;
+                }
+                const records = parsed.data.map(row => ({
+                    name: (row[nameKey] || '').trim(),
+                    passport: (row[passportKey] || '').toString().toUpperCase().trim(),
+                    status: statusKey ? (row[statusKey] || 'Pending').trim() : 'Pending',
+                    date: dateKey ? (row[dateKey] || '').trim() : ''
+                })).filter(r => r.name && r.passport);
+                const merge = document.getElementById('mergeGoogleSheet').checked;
+                processUploadedRecords(records, merge, feedback, 'Google Sheet');
+                setDataBanner('live', `🌐 Live data loaded — ${database.length} records from Google Sheets`);
+            } catch (err) {
+                feedback.textContent = '❌ Error: ' + err.message;
+                feedback.style.color = '#dc2626';
+            }
+        }
+
+        function updateSheetUrlDisplay() {
+            const el = document.getElementById('currentSheetUrlDisplay');
+            if (el && liveSheetUrl) {
+                el.textContent = '✅ Active: ' + liveSheetUrl.substring(0, 60) + (liveSheetUrl.length > 60 ? '…' : '');
+            }
         }
 
         // ==================== TOAST ====================
@@ -454,7 +580,15 @@
             if (tabBtn) tabBtn.classList.add('active');
             const tabContent = document.getElementById(`tab-${tabName}`);
             if (tabContent) tabContent.classList.add('active');
-            if (tabName === 'admin') updateAdminStats();
+            if (tabName === 'admin') {
+                updateAdminStats();
+                // Pre-fill the sheet URL field if saved
+                if (liveSheetUrl) {
+                    const urlField = document.getElementById('liveSheetUrl');
+                    if (urlField && !urlField.value) urlField.value = liveSheetUrl;
+                    updateSheetUrlDisplay();
+                }
+            }
         }
 
         // ==================== NAME MATCHING ====================
@@ -462,8 +596,7 @@
             return text.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim();
         }
         function matchNameCaseInsensitive(inputName, dbName) {
-            const ni = normalizeText(inputName),
-                nd = normalizeText(dbName);
+            const ni = normalizeText(inputName), nd = normalizeText(dbName);
             if (!ni || !nd) return false;
             if (ni === nd) return true;
             if (nd.includes(ni) || ni.includes(nd)) return true;
@@ -480,7 +613,7 @@
             const inputPassport = document.getElementById('passport').value.trim();
             const resultDiv = document.getElementById('result');
             if (!inputName || !inputPassport) { showResult('⚠️ Please fill in both fields.', 'error'); return; }
-            if (database.length === 0) { showResult('<h3>📭 Database is Empty</h3><p>No records yet.</p>', 'info'); return; }
+            if (database.length === 0) { showResult('<h3>📭 Database is Empty</h3><p>No records yet. Please try again shortly.</p>', 'info'); return; }
             const record = database.find(r => matchNameCaseInsensitive(inputName, r.name) && r.passport.toUpperCase().trim() === inputPassport.toUpperCase().trim());
             if (record) {
                 const statusMap = { 'Approved': 'status-approved', 'Pending': 'status-pending', 'Rejected': 'status-rejected', 'Processing': 'status-processing' };
@@ -496,14 +629,12 @@
                 showResult(`<h3>❌ No Record Found</h3><p>No match for <strong>${escapeHtml(inputName)}</strong> / <strong>${escapeHtml(inputPassport)}</strong>.</p>`, 'error');
             }
         }
-
         function showResult(message, type) {
             const resultDiv = document.getElementById('result');
             resultDiv.className = `result-box show ${type}`;
             resultDiv.innerHTML = message;
             resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
-
         function escapeHtml(str) { const div = document.createElement('div'); div.textContent = str; return div.innerHTML; }
 
         // ==================== ADMIN LOGIN ====================
@@ -514,54 +645,49 @@
             const msgDiv = document.getElementById('adminMessage');
             if (username === adminCredentials.username && password === adminCredentials.password) {
                 isAdminLoggedIn = true;
-                msgDiv.style.color = '#059669';
-                msgDiv.textContent = '✅ Login successful!';
+                msgDiv.style.color = '#059669'; msgDiv.textContent = '✅ Login successful!';
                 document.getElementById('adminControls').style.display = 'block';
                 document.getElementById('adminLoginCard').style.display = 'none';
-                updateAdminStats();
-                renderRecordsTable();
+                updateAdminStats(); renderRecordsTable();
+                if (liveSheetUrl) {
+                    const urlField = document.getElementById('liveSheetUrl');
+                    if (urlField) urlField.value = liveSheetUrl;
+                    updateSheetUrlDisplay();
+                }
                 showToast('Welcome back!', 'success');
             } else {
-                msgDiv.style.color = '#dc2626';
-                msgDiv.textContent = '❌ Invalid credentials.';
+                msgDiv.style.color = '#dc2626'; msgDiv.textContent = '❌ Invalid credentials.';
                 showToast('Invalid credentials', 'error');
             }
         }
-
         function adminLogout() {
             isAdminLoggedIn = false;
             document.getElementById('adminControls').style.display = 'none';
             document.getElementById('adminLoginCard').style.display = 'block';
-            document.getElementById('adminUser').value = '';
-            document.getElementById('adminPass').value = '';
+            document.getElementById('adminUser').value = ''; document.getElementById('adminPass').value = '';
             document.getElementById('adminMessage').textContent = '';
             showToast('Logged out', 'info');
         }
-
         function resetCredentials() {
             const newUser = document.getElementById('newUsername').value.trim();
             const newPass = document.getElementById('newPassword').value;
             const msgDiv = document.getElementById('resetMessage');
-            if (!newUser || !newPass) { msgDiv.style.color = '#dc2626';
-                msgDiv.textContent = 'Please fill both fields.'; return; }
+            if (!newUser || !newPass) { msgDiv.style.color = '#dc2626'; msgDiv.textContent = 'Please fill both fields.'; return; }
             adminCredentials = { username: newUser, password: newPass };
             saveToStorage();
-            msgDiv.style.color = '#059669';
-            msgDiv.textContent = `✅ Updated. Username: ${newUser}`;
-            document.getElementById('newUsername').value = '';
-            document.getElementById('newPassword').value = '';
+            msgDiv.style.color = '#059669'; msgDiv.textContent = `✅ Updated. Username: ${newUser}`;
+            document.getElementById('newUsername').value = ''; document.getElementById('newPassword').value = '';
             showToast('Credentials updated', 'success');
         }
 
         // ==================== STATS & TABLE ====================
         function updateAdminStats() {
             document.getElementById('statTotal').textContent = database.length;
-            document.getElementById('statApproved').textContent = database.filter(r => r.status === 'Approved').length;
-            document.getElementById('statPending').textContent = database.filter(r => r.status === 'Pending').length;
-            document.getElementById('statProcessing').textContent = database.filter(r => r.status === 'Processing').length;
-            document.getElementById('statRejected').textContent = database.filter(r => r.status === 'Rejected').length;
+            document.getElementById('statApproved').textContent = database.filter(r=>r.status==='Approved').length;
+            document.getElementById('statPending').textContent = database.filter(r=>r.status==='Pending').length;
+            document.getElementById('statProcessing').textContent = database.filter(r=>r.status==='Processing').length;
+            document.getElementById('statRejected').textContent = database.filter(r=>r.status==='Rejected').length;
         }
-
         function renderRecordsTable() {
             const searchTerm = document.getElementById('recordSearch')?.value || '';
             const tbody = document.getElementById('recordsTableBody');
@@ -573,13 +699,11 @@
                 filtered = database.filter(r => r.name.toLowerCase().includes(term) || r.passport.toLowerCase().includes(term) || r.status.toLowerCase().includes(term));
             }
             if (filtered.length === 0) {
-                table.style.display = 'none';
-                emptyState.style.display = 'block';
+                table.style.display = 'none'; emptyState.style.display = 'block';
                 emptyState.innerHTML = database.length === 0 ? '<div class="empty-icon">📭</div><p>No records yet.</p>' : '<div class="empty-icon">🔍</div><p>No matches.</p>';
             } else {
-                table.style.display = 'table';
-                emptyState.style.display = 'none';
-                const statusMap = { 'Approved': 'status-approved', 'Pending': 'status-pending', 'Rejected': 'status-rejected', 'Processing': 'status-processing' };
+                table.style.display = 'table'; emptyState.style.display = 'none';
+                const statusMap = { 'Approved':'status-approved','Pending':'status-pending','Rejected':'status-rejected','Processing':'status-processing' };
                 tbody.innerHTML = filtered.map(r => {
                     const idx = database.indexOf(r);
                     return `<tr>
@@ -599,8 +723,7 @@
         }
 
         function editRecord(index) {
-            const r = database[index];
-            if (!r) return;
+            const r = database[index]; if (!r) return;
             document.getElementById('editIndex').value = index;
             document.getElementById('editName').value = r.name;
             document.getElementById('editPassport').value = r.passport;
@@ -608,7 +731,6 @@
             document.getElementById('editDate').value = r.date || new Date().toISOString().split('T')[0];
             document.getElementById('editModal').style.display = 'flex';
         }
-
         function saveRecordEdit() {
             const index = parseInt(document.getElementById('editIndex').value);
             if (isNaN(index) || index < 0 || index >= database.length) return;
@@ -616,45 +738,33 @@
             database[index].passport = document.getElementById('editPassport').value.trim().toUpperCase();
             database[index].status = document.getElementById('editStatus').value;
             database[index].date = document.getElementById('editDate').value;
-            saveToStorage();
-            renderRecordsTable();
-            closeModal();
+            saveToStorage(); renderRecordsTable(); closeModal();
             showToast('Record updated', 'success');
         }
-
         function deleteRecord(index) {
             if (!confirm('Delete this record?')) return;
-            database.splice(index, 1);
-            saveToStorage();
-            renderRecordsTable();
+            database.splice(index,1); saveToStorage(); renderRecordsTable();
             showToast('Record deleted', 'error');
         }
-
         function addRecordModal() {
-            const name = prompt('Full name:');
-            if (!name?.trim()) return;
-            const passport = prompt('Passport number:');
-            if (!passport?.trim()) return;
-            const status = prompt('Status (Approved/Pending/Processing/Rejected):', 'Pending');
-            const valid = ['Approved', 'Pending', 'Processing', 'Rejected'];
-            database.push({ name: name.trim(), passport: passport.trim().toUpperCase(), status: valid.includes(status) ? status : 'Pending', date: new Date().toISOString().split('T')[0] });
-            saveToStorage();
-            renderRecordsTable();
+            const name = prompt('Full name:'); if (!name?.trim()) return;
+            const passport = prompt('Passport number:'); if (!passport?.trim()) return;
+            const status = prompt('Status (Approved/Pending/Processing/Rejected):','Pending');
+            const valid = ['Approved','Pending','Processing','Rejected'];
+            database.push({ name: name.trim(), passport: passport.trim().toUpperCase(), status: valid.includes(status)?status:'Pending', date: new Date().toISOString().split('T')[0] });
+            saveToStorage(); renderRecordsTable();
             showToast('Record added', 'success');
         }
-
         function closeModal() { document.getElementById('editModal').style.display = 'none'; }
-
         function closeModalOutside(e) { if (e.target === document.getElementById('editModal')) closeModal(); }
 
-        // ==================== FILE UPLOAD (local files) ====================
+        // ==================== FILE UPLOAD ====================
         function handleFileUpload(files) {
-            if (!files || files.length === 0) return;
+            if (!files || files.length===0) return;
             const file = files[0];
-            const ext = '.' + file.name.split('.').pop().toLowerCase();
+            const ext = '.'+file.name.split('.').pop().toLowerCase();
             const feedback = document.getElementById('uploadFeedback');
-            feedback.textContent = '⏳ Processing...';
-            feedback.style.color = '#6b7280';
+            feedback.textContent = '⏳ Processing...'; feedback.style.color = '#6b7280';
             const reader = new FileReader();
             const merge = document.getElementById('mergeUpload').checked;
             if (ext === '.json') {
@@ -663,18 +773,17 @@
                         const data = JSON.parse(e.target.result);
                         const records = Array.isArray(data.database) ? data.database : (Array.isArray(data) ? data : []);
                         processUploadedRecords(records, merge, feedback, file.name);
-                    } catch (err) { feedback.textContent = '❌ ' + err.message;
-                        feedback.style.color = '#dc2626'; }
+                    } catch(err) { feedback.textContent = '❌ '+err.message; feedback.style.color = '#dc2626'; }
                 };
                 reader.readAsText(file);
             } else if (ext === '.csv') {
                 reader.onload = e => {
-                    const parsed = Papa.parse(e.target.result, { header: true, skipEmptyLines: true });
+                    const parsed = Papa.parse(e.target.result, { header:true, skipEmptyLines:true });
                     const records = parsed.data.map(r => ({
-                        name: r.Name || r.name || r['Full Name'] || '',
-                        passport: (r.Passport || r.passport || r['Passport Number'] || '').toString().toUpperCase(),
-                        status: r.Status || r.status || 'Pending',
-                        date: r.Date || r.date || new Date().toISOString().split('T')[0]
+                        name: r.Name||r.name||r['Full Name']||'',
+                        passport: (r.Passport||r.passport||r['Passport Number']||'').toString().toUpperCase(),
+                        status: r.Status||r.status||'Pending',
+                        date: r.Date||r.date||new Date().toISOString().split('T')[0]
                     })).filter(r => r.name && r.passport);
                     processUploadedRecords(records, merge, feedback, file.name);
                 };
@@ -685,46 +794,40 @@
                         const data = new Uint8Array(e.target.result);
                         const pdf = await pdfjsLib.getDocument({ data }).promise;
                         let text = '';
-                        for (let i = 1; i <= pdf.numPages; i++) { const page = await pdf.getPage(i);
-                            const content = await page.getTextContent();
-                            text += content.items.map(it => it.str).join(' ') + '\n'; }
+                        for (let i=1; i<=pdf.numPages; i++) { const page = await pdf.getPage(i); const content = await page.getTextContent(); text += content.items.map(it=>it.str).join(' ')+'\n'; }
                         const records = parseTextToRecords(text);
                         processUploadedRecords(records, merge, feedback, file.name);
-                    } catch (err) { feedback.textContent = '❌ ' + err.message;
-                        feedback.style.color = '#dc2626'; }
+                    } catch(err) { feedback.textContent = '❌ '+err.message; feedback.style.color = '#dc2626'; }
                 };
                 reader.readAsArrayBuffer(file);
-            } else { // Excel
+            } else {
                 reader.onload = e => {
                     try {
-                        const wb = XLSX.read(new Uint8Array(e.target.result), { type: 'array' });
+                        const wb = XLSX.read(new Uint8Array(e.target.result), { type:'array' });
                         const json = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
                         const records = json.map(r => ({
-                            name: r.Name || r.name || '',
-                            passport: (r.Passport || r.passport || '').toString().toUpperCase(),
-                            status: r.Status || r.status || 'Pending',
-                            date: r.Date || r.date || new Date().toISOString().split('T')[0]
+                            name: r.Name||r.name||'',
+                            passport: (r.Passport||r.passport||'').toString().toUpperCase(),
+                            status: r.Status||r.status||'Pending',
+                            date: r.Date||r.date||new Date().toISOString().split('T')[0]
                         })).filter(r => r.name && r.passport);
                         processUploadedRecords(records, merge, feedback, file.name);
-                    } catch (err) { feedback.textContent = '❌ ' + err.message;
-                        feedback.style.color = '#dc2626'; }
+                    } catch(err) { feedback.textContent = '❌ '+err.message; feedback.style.color = '#dc2626'; }
                 };
                 reader.readAsArrayBuffer(file);
             }
         }
 
         function parseTextToRecords(text) {
-            const lines = text.split('\n').filter(l => l.trim());
+            const lines = text.split('\n').filter(l=>l.trim());
             const records = [];
             for (let line of lines) {
                 const parts = line.split(/[\t,;|]\s*/);
-                if (parts.length >= 3) {
-                    const name = parts[0]?.trim(),
-                        passport = parts[1]?.trim()?.toUpperCase(),
-                        status = parts[2]?.trim();
+                if (parts.length>=3) {
+                    const name = parts[0]?.trim(), passport = parts[1]?.trim()?.toUpperCase(), status = parts[2]?.trim();
                     if (name && passport && /^[A-Z0-9]+$/.test(passport)) {
-                        const valid = ['Approved', 'Pending', 'Processing', 'Rejected'];
-                        records.push({ name, passport, status: valid.find(s => s.toLowerCase() === status?.toLowerCase()) || 'Pending', date: parts[3]?.trim() || new Date().toISOString().split('T')[0] });
+                        const valid = ['Approved','Pending','Processing','Rejected'];
+                        records.push({ name, passport, status: valid.find(s=>s.toLowerCase()===status?.toLowerCase())||'Pending', date: parts[3]?.trim()||new Date().toISOString().split('T')[0] });
                     }
                 }
             }
@@ -733,16 +836,13 @@
 
         function processUploadedRecords(records, merge, feedbackEl, sourceName) {
             if (!merge) database = [];
-            let added = 0,
-                updated = 0;
+            let added=0, updated=0;
             records.forEach(rec => {
                 const idx = database.findIndex(r => r.passport.toUpperCase() === rec.passport.toUpperCase());
-                if (idx >= 0) { database[idx] = { ...database[idx], ...rec };
-                    updated++; } else { database.push(rec);
-                    added++; }
+                if (idx>=0) { database[idx] = {...database[idx], ...rec}; updated++; }
+                else { database.push(rec); added++; }
             });
-            saveToStorage();
-            renderRecordsTable();
+            saveToStorage(); renderRecordsTable();
             feedbackEl.innerHTML = `✅ Processed <strong>${escapeHtml(sourceName)}</strong>: ${added} added, ${updated} updated. Total: ${database.length}.`;
             feedbackEl.style.color = '#059669';
             showToast(`${added} added, ${updated} updated`, 'success');
@@ -750,181 +850,82 @@
 
         function importFromHardDrive() {
             const input = document.createElement('input');
-            input.type = 'file';
-            input.accept = '.json,.csv,.xlsx,.xls,.pdf';
+            input.type='file'; input.accept='.json,.csv,.xlsx,.xls,.pdf';
             input.onchange = () => handleFileUpload(input.files);
             input.click();
         }
 
-        // ==================== GOOGLE SHEETS CSV IMPORT ====================
+        // ==================== COLUMN KEY HELPER ====================
         function findColumnKey(keys, ...aliases) {
             return keys.find(k => aliases.some(a => k.toLowerCase().includes(a))) || null;
         }
 
-        async function importFromGoogleSheet() {
-            const url = document.getElementById('googleSheetUrl').value.trim();
-            const feedback = document.getElementById('googleSheetFeedback');
-            if (!url) { feedback.textContent = 'Please enter a URL.';
-                feedback.style.color = '#dc2626'; return; }
-            feedback.textContent = '⏳ Fetching CSV from Google Sheets...';
-            feedback.style.color = '#6b7280';
-            try {
-                const response = await fetch(url);
-                if (!response.ok) throw new Error('HTTP ' + response.status);
-                const csvText = await response.text();
-                const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
-                if (parsed.data.length === 0) {
-                    feedback.textContent = '❌ No data found in CSV.';
-                    feedback.style.color = '#dc2626'; return;
-                }
-                const headers = parsed.meta.fields;
-                const nameKey = findColumnKey(headers, 'name', 'full name', 'applicant');
-                const passportKey = findColumnKey(headers, 'passport', 'passport no', 'passport number');
-                const statusKey = findColumnKey(headers, 'status');
-                const dateKey = findColumnKey(headers, 'date', 'updated', 'last');
-
-                if (!nameKey || !passportKey) {
-                    feedback.textContent = '❌ Could not find Name and Passport columns. Headers found: ' + headers.join(', ');
-                    feedback.style.color = '#dc2626'; return;
-                }
-
-                const records = parsed.data.map(row => ({
-                    name: (row[nameKey] || '').trim(),
-                    passport: (row[passportKey] || '').toString().toUpperCase().trim(),
-                    status: statusKey ? (row[statusKey] || 'Pending').trim() : 'Pending',
-                    date: dateKey ? (row[dateKey] || new Date().toISOString().split('T')[0]).trim() : new Date().toISOString().split('T')[0]
-                })).filter(r => r.name && r.passport);
-
-                if (records.length === 0) {
-                    feedback.textContent = '❌ No valid records found. Name and Passport fields must not be empty.';
-                    feedback.style.color = '#dc2626'; return;
-                }
-                const merge = document.getElementById('mergeGoogleSheet').checked;
-                processUploadedRecords(records, merge, feedback, 'Google Sheet');
-            } catch (err) {
-                feedback.textContent = '❌ Error: ' + err.message;
-                feedback.style.color = '#dc2626';
-            }
-        }
-
         // ==================== EXPORT ====================
         function exportDatabase(format) {
-            if (database.length === 0) { showToast('Nothing to export.', 'error'); return; }
+            if (database.length===0) { showToast('Nothing to export.','error'); return; }
             const ts = new Date().toISOString().split('T')[0];
             let blob, filename;
-            if (format === 'json') {
-                blob = new Blob([JSON.stringify({ database, exportDate: new Date().toISOString(), recordCount: database.length }, null, 2)], { type: 'application/json' });
+            if (format==='json') {
+                blob = new Blob([JSON.stringify({database, exportDate:new Date().toISOString(), recordCount:database.length}, null, 2)], {type:'application/json'});
                 filename = `MM2H_${ts}.json`;
-            } else if (format === 'csv') {
-                const csv = Papa.unparse(database.map(r => ({ Name: r.name, Passport: r.passport, Status: r.status, Date: r.date || '' })));
-                blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            } else if (format==='csv') {
+                const csv = Papa.unparse(database.map(r=>({Name:r.name, Passport:r.passport, Status:r.status, Date:r.date||''})));
+                blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
                 filename = `MM2H_${ts}.csv`;
-            } else if (format === 'xlsx') {
-                const ws = XLSX.utils.json_to_sheet(database.map(r => ({ Name: r.name, Passport: r.passport, Status: r.status, Date: r.date || '' })));
-                const wb = XLSX.utils.book_new();
-                XLSX.utils.book_append_sheet(wb, ws, 'Records');
-                blob = new Blob([XLSX.write(wb, { bookType: 'xlsx', type: 'array' })], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+            } else if (format==='xlsx') {
+                const ws = XLSX.utils.json_to_sheet(database.map(r=>({Name:r.name, Passport:r.passport, Status:r.status, Date:r.date||''})));
+                const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, 'Records');
+                blob = new Blob([XLSX.write(wb, {bookType:'xlsx', type:'array'})], {type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
                 filename = `MM2H_${ts}.xlsx`;
             }
             const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            const a = document.createElement('a'); a.href=url; a.download=filename; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
             showToast(`Exported ${database.length} records`, 'success');
         }
 
         function addSampleData() {
             const samples = [
-                { name: 'Ching Chien', passport: 'F12345678', status: 'Approved', date: '2024-06-15' },
-                { name: 'Ahmad Bin Abdullah', passport: 'A12345678', status: 'Approved', date: '2024-01-15' },
-                { name: 'Tan Mei Ling', passport: 'B98765432', status: 'Pending', date: '2024-02-20' },
-                { name: 'Raj Kumar A/L Muthu', passport: 'C45678901', status: 'Processing', date: '2024-03-10' },
-                { name: 'Wong Siew Fong', passport: 'D23456789', status: 'Rejected', date: '2024-01-05' },
-                { name: 'John Doe', passport: 'E34567890', status: 'Approved', date: '2024-02-28' },
-                { name: 'MOHAMED ALI', passport: 'G98765432', status: 'Processing', date: '2024-06-10' },
-                { name: 'sarah tan', passport: 'H45678901', status: 'Pending', date: '2024-06-05' },
-                { name: 'david chen', passport: 'I23456789', status: 'Approved', date: '2024-05-28' },
+                {name:'Ching Chien',passport:'F12345678',status:'Approved',date:'2024-06-15'},
+                {name:'Ahmad Bin Abdullah',passport:'A12345678',status:'Approved',date:'2024-01-15'},
+                {name:'Tan Mei Ling',passport:'B98765432',status:'Pending',date:'2024-02-20'},
+                {name:'Raj Kumar A/L Muthu',passport:'C45678901',status:'Processing',date:'2024-03-10'},
+                {name:'Wong Siew Fong',passport:'D23456789',status:'Rejected',date:'2024-01-05'},
+                {name:'John Doe',passport:'E34567890',status:'Approved',date:'2024-02-28'},
+                {name:'MOHAMED ALI',passport:'G98765432',status:'Processing',date:'2024-06-10'},
+                {name:'sarah tan',passport:'H45678901',status:'Pending',date:'2024-06-05'},
+                {name:'david chen',passport:'I23456789',status:'Approved',date:'2024-05-28'},
             ];
-            let added = 0;
-            samples.forEach(r => { if (!database.some(x => x.passport === r.passport)) { database.push(r);
-                    added++; } });
-            saveToStorage();
-            renderRecordsTable();
-            showToast(`Added ${added} samples`, 'success');
+            let added=0;
+            samples.forEach(r=>{ if(!database.some(x=>x.passport===r.passport)){ database.push(r); added++; } });
+            saveToStorage(); renderRecordsTable();
+            showToast(`Added ${added} samples`,'success');
         }
-
         function clearAllData() {
             if (!confirm('Delete ALL records? Type DELETE to confirm.')) return;
-            if (prompt('Type DELETE:') !== 'DELETE') { showToast('Cancelled', 'info'); return; }
-            database = [];
-            saveToStorage();
-            renderRecordsTable();
-            document.getElementById('result').className = 'result-box';
-            document.getElementById('result').innerHTML = '';
-            showToast('All records deleted', 'error');
+            if (prompt('Type DELETE:')!=='DELETE') { showToast('Cancelled','info'); return; }
+            database=[]; saveToStorage(); renderRecordsTable();
+            document.getElementById('result').className='result-box'; document.getElementById('result').innerHTML='';
+            showToast('All records deleted','error');
         }
 
         // ==================== DRAG & DROP ====================
         function setupDragDrop() {
             const dropZone = document.getElementById('dropZone');
             if (!dropZone) return;
-            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(ev => dropZone.addEventListener(ev, e => { e.preventDefault();
-                e.stopPropagation(); }));
-            ['dragenter', 'dragover'].forEach(ev => dropZone.addEventListener(ev, () => dropZone.classList.add('dragover')));
-            ['dragleave', 'drop'].forEach(ev => dropZone.addEventListener(ev, () => dropZone.classList.remove('dragover')));
-            dropZone.addEventListener('drop', e => {
+            ['dragenter','dragover','dragleave','drop'].forEach(ev=>dropZone.addEventListener(ev, e=>{e.preventDefault();e.stopPropagation();}));
+            ['dragenter','dragover'].forEach(ev=>dropZone.addEventListener(ev, ()=>dropZone.classList.add('dragover')));
+            ['dragleave','drop'].forEach(ev=>dropZone.addEventListener(ev, ()=>dropZone.classList.remove('dragover')));
+            dropZone.addEventListener('drop', e=>{
                 const files = e.dataTransfer.files;
-                if (files.length) { document.getElementById('fileInput').files = files;
-                    handleFileUpload(files); }
+                if (files.length) { document.getElementById('fileInput').files = files; handleFileUpload(files); }
             });
-        }
-
-        // ==================== LIVE DATA LOADING ====================
-        // ⚠️ PASTE YOUR GOOGLE SHEET CSV URL BELOW
-        const LIVE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/YOUR_URL_HERE/pub?output=csv';
-
-        async function loadLiveData() {
-            try {
-                const response = await fetch(LIVE_SHEET_URL);
-                if (!response.ok) throw new Error('Could not reach data source');
-                const csvText = await response.text();
-                const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
-                const headers = parsed.meta.fields;
-                const nameKey = findColumnKey(headers, 'name', 'full name');
-                const passportKey = findColumnKey(headers, 'passport');
-                const statusKey = findColumnKey(headers, 'status');
-                const dateKey = findColumnKey(headers, 'date');
-                if (nameKey && passportKey) {
-                    database = parsed.data.map(row => ({
-                        name: (row[nameKey] || '').trim(),
-                        passport: (row[passportKey] || '').toString().toUpperCase().trim(),
-                        status: statusKey ? (row[statusKey] || 'Pending').trim() : 'Pending',
-                        date: dateKey ? (row[dateKey] || '').trim() : ''
-                    })).filter(r => r.name && r.passport);
-                    saveToStorage();
-                    console.log('✅ Live data loaded:', database.length, 'records');
-                }
-            } catch (err) {
-                // Fall back to localStorage if sheet is unreachable
-                loadFromStorage();
-                console.warn('⚠️ Live data fetch failed, using cached data:', err.message);
-            }
-            updateAdminStats();
-            renderRecordsTable();
         }
 
         // ==================== INIT ====================
         window.onload = function() {
-            loadFromStorage(); // load admin credentials & cached data
             setupDragDrop();
-            loadLiveData(); // fetch live records from Google Sheets
-            if (typeof pdfjsLib !== 'undefined') {
-                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-            }
+            loadLiveData(); // Fetches from Google Sheets (or falls back to cache)
+            if (typeof pdfjsLib !== 'undefined') pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
         };
     </script>
 </body>
